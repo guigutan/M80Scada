@@ -1,0 +1,11 @@
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\bin\Release\EZSockets.dll.config
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\bin\Release\EZSockets.dll
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\bin\Release\EZSockets.pdb
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\bin\Release\Common.dll
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.csproj.AssemblyReference.cache
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.Properties.Resources.resources
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.csproj.GenerateResource.cache
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.csproj.CoreCompileInputs.cache
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.csproj.CopyComplete
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.dll
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\EZSockets\obj\Release\EZSockets.pdb

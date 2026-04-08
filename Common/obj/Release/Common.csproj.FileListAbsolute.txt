@@ -1,0 +1,9 @@
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\bin\Release\Common.dll.config
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\bin\Release\Common.dll
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\bin\Release\Common.pdb
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\obj\Release\Common.csproj.AssemblyReference.cache
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\obj\Release\Common.Properties.Resources.resources
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\obj\Release\Common.csproj.GenerateResource.cache
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\obj\Release\Common.dll
+D:\Project\数控\CNC\demo\三菱SDK demo\SimCNC-master\SimCNC\Common\obj\Release\Common.pdb

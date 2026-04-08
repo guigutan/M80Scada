@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M80Scada", "M80Scada.csproj", "{13251FA5-079C-43A7-A6BB-E47E14080E8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{8B647044-F604-4268-9D6C-F422DC17E907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EZSockets", "EZSockets\EZSockets.csproj", "{F4643EFC-DEF5-42FD-991F-363896A86CCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13251FA5-079C-43A7-A6BB-E47E14080E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13251FA5-079C-43A7-A6BB-E47E14080E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13251FA5-079C-43A7-A6BB-E47E14080E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13251FA5-079C-43A7-A6BB-E47E14080E8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B647044-F604-4268-9D6C-F422DC17E907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B647044-F604-4268-9D6C-F422DC17E907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B647044-F604-4268-9D6C-F422DC17E907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B647044-F604-4268-9D6C-F422DC17E907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4643EFC-DEF5-42FD-991F-363896A86CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4643EFC-DEF5-42FD-991F-363896A86CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4643EFC-DEF5-42FD-991F-363896A86CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4643EFC-DEF5-42FD-991F-363896A86CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DACBCF3-B352-4E3F-B4E5-316B13FFBAB9}
+	EndGlobalSection
+EndGlobal
