@@ -44,7 +44,8 @@ namespace M80Scada
         public List<MyMachine> SlcMachine(string _ScadaNO)
         {           
             List<MyMachine> list = new List<MyMachine>();
-            string sql = "select * from t_Machine where MachineStatus=1 and  MachineStype='M80' order by OrderBy";            
+            string sql = "select MachineID,MachineNO,IpAddr,PortNum,tempOneToMany,tempItem from t_Machine where Status=1 and Stype='M80' order by OrderBy";
+
             DataTable dt = sf.slc_of_sql(sql, GlobalCommon.ConnStr);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -52,11 +53,13 @@ namespace M80Scada
                 {
                     MyMachine mm = new MyMachine();
                     //mm.No=((i + 1) / 10).ToString();//分组
-                    mm.No = i.ToString(); //不分组
-                    mm.MachineID = dt.Rows[i]["MachineID"].ToString();
+                    mm.No = i.ToString(); //不分组   
+                    mm.MachineID = Convert.ToInt32(dt.Rows[i]["MachineID"]);
                     mm.MachineNO = dt.Rows[i]["MachineNO"].ToString();
                     mm.IpAddr = dt.Rows[i]["IpAddr"].ToString();
-                    mm.PortNum = dt.Rows[i]["PortNum"].ToString();
+                    mm.PortNum = Convert.ToInt32(dt.Rows[i]["PortNum"]);
+                    mm.tempOneToMany = Convert.ToInt32(dt.Rows[i]["tempOneToMany"]);
+                    mm.tempItem = dt.Rows[i]["tempItem"].ToString();
                     mm.ScadaNO = _ScadaNO;
                     list.Add(mm);
                 }
@@ -85,9 +88,54 @@ namespace M80Scada
 
                     foreach (var MyMachine in list)
                     {
-                      ThreadSCADA(MyMachine);
-                    }
-                                        
+                        string sql = "insert into t_scadadata(MachineID,ScadaNO,WkcntrNum,WkcntrCount,OneToMany,WkcntrSum,LedStatus,ItemString) values  ";
+
+                        int checkCount = 0;
+                        bool checkIP = false;
+                        while (!checkIP && checkCount < 3) { checkIP = mf.CheckPingIP(MyMachine.IpAddr); checkCount++; }
+                        string MachineID = MyMachine.MachineID.ToString();
+                        string ScadaNO = MyMachine.ScadaNO;
+                        int WkcntrNum = -1;
+                        int WkcntrCount = 0;
+                        int OneToMany = 1;
+                        int WkcntrSum = 0;
+                        int LedStatus = -1;
+                        string ItemString = "";
+                        if (checkIP) 
+                        {
+                            EZSockets.MitCom MyMitCom = new MitCom();
+                            MyMitCom.GetSimConnect("M800M", "1", "10", MyMachine.IpAddr); //连接/断开
+                            Thread.Sleep(10);
+
+                            //-----三色灯--------------------------------------
+                            int Y40 = -1;
+                            int Y41 = -1;
+                            int Y42 = -1;
+                            MyMitCom.ReadDeviceY("Y41", out Y41);
+                            MyMitCom.ReadDeviceY("Y40", out Y40);
+                            MyMitCom.ReadDeviceY("Y42", out Y42);
+                            if (Y40 == 0 && Y41 == 1 && Y42 == 0) { LedStatus = 1; }//绿灯 0 1 0
+                            if (Y40 == 1 && Y41 == 1 && Y42 == 0) { LedStatus = 2; }//黄灯 1 1 0
+                            if (Y40 == 0 && Y41 == 0 && Y42 == 1) { LedStatus = 2; }//黄灯 0 0 1
+                            if (Y40 == 1 && Y41 == 0 && Y42 == 0) { LedStatus = 3; }//红灯 1 0 0                            
+
+                            //-----工件计数--------------------------------------
+                            string M80count = "";
+                            MyMitCom.GetParaValue(30, 8002, 1, 1, out M80count);
+                            try { if (M80count != "") { WkcntrNum = Convert.ToInt32(M80count); } }
+                            catch { }
+
+                            //-----产量小计--------------------------------------
+                            WkcntrCount = GetWkcntrCount(WkcntrNum, MachineID, MyMachine.ScadaNO);
+                            WkcntrSum = WkcntrCount * OneToMany;
+
+                            MyMitCom.GetSimConnect("M800M", "1", "10", MyMachine.IpAddr); //连接/断开
+                        }
+
+                        //IP通不通都需要记录采集结果 
+                        sql += string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", MachineID, ScadaNO, WkcntrNum, WkcntrCount, OneToMany, WkcntrSum, LedStatus, ItemString);
+                        sf.insert_of_sql(sql, GlobalCommon.ConnStr);
+                    }                                        
 
                 }
                
@@ -107,15 +155,16 @@ namespace M80Scada
                     break;
                 }
             }
-            //----------------------
+            //----------------------         
+
             int WkcntrNum = -1;
             int WkcntrCount = 0;
             int LedStatus = -1;
-            string ItemString = "";
+            string ItemString = machine.tempItem;
+            string MachineID = machine.MachineID.ToString();
             string ScadaNO = machine.ScadaNO;
-            string MachineID = machine.MachineID;
-
-
+            int OneToMany = machine.tempOneToMany;
+            int WkcntrSum = 0;
             if (CkIp)
             {
                 if (machine.IpAddr == "192.168.16.97")
@@ -156,36 +205,25 @@ namespace M80Scada
                 catch { }
 
 
-                WkcntrCount = GetWkcntrCount(WkcntrNum, machine.MachineID, machine.ScadaNO);
-                
-                string ncName = "";//mf.GetNcName(machine.IpAddr, Convert.ToInt32(machine.PortNum));
-                string ncText = "";// mf.GetNcText(machine.IpAddr, Convert.ToInt32(machine.PortNum), ncName);
-                ncText = "";//ncText.Replace("（", "(").Replace("I", "i").Replace("：", ":").Replace("）", ")");
-                ItemString = "";// mf.GetSubstring(ncText, "(i:", ")");
+                WkcntrCount = GetWkcntrCount(WkcntrNum, MachineID, machine.ScadaNO);
+                WkcntrSum = WkcntrCount * OneToMany;
+
 
                 MyMitCom.GetSimConnect("M800M", "1", "10", machine.IpAddr); //连接/断开
-            }
 
 
-            if (!IsScadaNO(MachineID, ScadaNO))
-            {
-                string sqlInsert = "insert into t_scadadata(MachineID,ScadaNO,WkcntrNum,WkcntrCount,LedStatus,ItemString) values  ";
-                sqlInsert += string.Format("('{0}','{1}','{2}','{3}','{4}','{5}')", machine.MachineID, ScadaNO, WkcntrNum, WkcntrCount, LedStatus, ItemString);
+
+                string sqlInsert = "insert into t_scadadata(MachineID,ScadaNO,WkcntrNum,WkcntrCount,OneToMany,WkcntrSum,LedStatus,ItemString) values  ";
+
+                sqlInsert += string.Format("('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", MachineID, ScadaNO, WkcntrNum, WkcntrCount, OneToMany, WkcntrSum, LedStatus, ItemString);
                 int count1 = sf.insert_of_sql(sqlInsert, GlobalCommon.ConnStr);
 
 
-                // if (!(count1 > 0)) { UpdAgant(WkcntrNum, WkcntrCount, LedStatus, MachineID, ScadaNO); }
-
 
             }
-            else
-            {
-                // UpdAgant( WkcntrNum,  WkcntrCount,LedStatus ,MachineID,  ScadaNO);
-            }
 
 
-
-
+        
 
 
             // int thisthread = Thread.CurrentThread.ManagedThreadId;

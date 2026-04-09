@@ -139,3 +139,13 @@ D:\myproject\M80Scada03\M80Scada\EZSockets\obj\Debug\EZSockets.csproj.CoreCompil
 D:\myproject\M80Scada03\M80Scada\EZSockets\obj\Debug\EZSockets.csproj.Up2Date
 D:\myproject\M80Scada03\M80Scada\EZSockets\obj\Debug\EZSockets.dll
 D:\myproject\M80Scada03\M80Scada\EZSockets\obj\Debug\EZSockets.pdb
+E:\mydoc\csharp\M80Scada\M80Scada\bin\Debug\EZSockets.dll.config
+E:\mydoc\csharp\M80Scada\M80Scada\bin\Debug\EZSockets.dll
+E:\mydoc\csharp\M80Scada\M80Scada\bin\Debug\EZSockets.pdb
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.csproj.AssemblyReference.cache
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.Properties.Resources.resources
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.csproj.GenerateResource.cache
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.csproj.CoreCompileInputs.cache
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.csproj.Up2Date
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.dll
+E:\mydoc\csharp\M80Scada\EZSockets\obj\Debug\EZSockets.pdb
