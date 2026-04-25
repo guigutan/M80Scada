@@ -136,3 +136,12 @@ E:\mydoc\csharp\M80Scada\Common\obj\Debug\Common.csproj.GenerateResource.cache
 E:\mydoc\csharp\M80Scada\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 E:\mydoc\csharp\M80Scada\Common\obj\Debug\Common.dll
 E:\mydoc\csharp\M80Scada\Common\obj\Debug\Common.pdb
+E:\csharpLib\M80Scada\M80Scada\bin\Debug\Common.dll.config
+E:\csharpLib\M80Scada\M80Scada\bin\Debug\Common.dll
+E:\csharpLib\M80Scada\M80Scada\bin\Debug\Common.pdb
+E:\csharpLib\M80Scada\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+E:\csharpLib\M80Scada\Common\obj\Debug\Common.Properties.Resources.resources
+E:\csharpLib\M80Scada\Common\obj\Debug\Common.csproj.GenerateResource.cache
+E:\csharpLib\M80Scada\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+E:\csharpLib\M80Scada\Common\obj\Debug\Common.dll
+E:\csharpLib\M80Scada\Common\obj\Debug\Common.pdb

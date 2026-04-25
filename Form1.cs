@@ -57,7 +57,11 @@ namespace M80Scada
                     mm.MachineID = Convert.ToInt32(dt.Rows[i]["MachineID"]);
                     mm.MachineNO = dt.Rows[i]["MachineNO"].ToString();
                     mm.IpAddr = dt.Rows[i]["IpAddr"].ToString();
-                    mm.PortNum = Convert.ToInt32(dt.Rows[i]["PortNum"]);
+
+                    mm.PortNum = 683; 
+                    try { if (dt.Rows[i]["PortNum"] != null && dt.Rows[i]["PortNum"].ToString() != "") { mm.PortNum =Convert.ToInt32(dt.Rows[i]["PortNum"]); } }
+                    catch { }
+
                     mm.tempOneToMany = Convert.ToInt32(dt.Rows[i]["tempOneToMany"]);
                     mm.tempItem = dt.Rows[i]["tempItem"].ToString();
                     mm.ScadaNO = _ScadaNO;
@@ -118,6 +122,12 @@ namespace M80Scada
                             if (Y40 == 1 && Y41 == 1 && Y42 == 0) { LedStatus = 2; }//黄灯 1 1 0
                             if (Y40 == 0 && Y41 == 0 && Y42 == 1) { LedStatus = 2; }//黄灯 0 0 1
                             if (Y40 == 1 && Y41 == 0 && Y42 == 0) { LedStatus = 3; }//红灯 1 0 0                            
+
+                            if (LedStatus>0) 
+                            {
+                                string str = "断点专用";
+                            }
+
 
                             //-----工件计数--------------------------------------
                             string M80count = "";
