@@ -145,3 +145,4 @@ E:\csharpLib\M80Scada\obj\Debug\M80Scada.csproj.CoreCompileInputs.cache
 E:\csharpLib\M80Scada\obj\Debug\M80Scada.csproj.Up2Date
 E:\csharpLib\M80Scada\obj\Debug\M80Scada.exe
 E:\csharpLib\M80Scada\obj\Debug\M80Scada.pdb
+E:\csharpLib\M80Scada\obj\Debug\M80Scada.exe.config

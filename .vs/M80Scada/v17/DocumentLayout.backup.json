@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "E:\\csharpLib\\M80Scada\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{13251FA5-079C-43A7-A6BB-E47E14080E8C}|M80Scada.csproj|e:\\csharplib\\m80scada\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{13251FA5-079C-43A7-A6BB-E47E14080E8C}|M80Scada.csproj|E:\\csharpLib\\M80Scada\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{13251FA5-079C-43A7-A6BB-E47E14080E8C}|M80Scada.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Common||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|EZSockets||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|M80Scada||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B647044-F604-4268-9D6C-F422DC17E907}|Common\\Common.csproj|e:\\csharplib\\m80scada\\common\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +26,42 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Common",
+              "DocumentMoniker": "E:\\csharpLib\\M80Scada\\Common\\Common.csproj",
+              "RelativeDocumentMoniker": "Common\\Common.csproj",
+              "ToolTip": "E:\\csharpLib\\M80Scada\\Common\\Common.csproj",
+              "RelativeToolTip": "Common\\Common.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-25T10:26:35.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EZSockets",
+              "DocumentMoniker": "E:\\csharpLib\\M80Scada\\EZSockets\\EZSockets.csproj",
+              "RelativeDocumentMoniker": "EZSockets\\EZSockets.csproj",
+              "ToolTip": "E:\\csharpLib\\M80Scada\\EZSockets\\EZSockets.csproj",
+              "RelativeToolTip": "EZSockets\\EZSockets.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-25T10:26:32.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "M80Scada",
+              "DocumentMoniker": "E:\\csharpLib\\M80Scada\\M80Scada.csproj",
+              "RelativeDocumentMoniker": "M80Scada.csproj",
+              "ToolTip": "E:\\csharpLib\\M80Scada\\M80Scada.csproj",
+              "RelativeToolTip": "M80Scada.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-25T10:26:26.544Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +70,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "E:\\csharpLib\\M80Scada\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAADwv3cAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAADwv5kAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-25T10:14:19.859Z",
               "EditorCaption": ""

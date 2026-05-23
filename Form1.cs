@@ -105,11 +105,24 @@ namespace M80Scada
                         int WkcntrSum = 0;
                         int LedStatus = -1;
                         string ItemString = "";
+                       
                         if (checkIP) 
                         {
+                            if (MyMachine.IpAddr == "192.168.6.95")
+                            {
+                                string str = "断点专用";
+                            }
+
                             EZSockets.MitCom MyMitCom = new MitCom();
                             MyMitCom.GetSimConnect("M800M", "1", "10", MyMachine.IpAddr); //连接/断开
                             Thread.Sleep(10);
+
+                            //-----工件计数--------------------------------------
+                            string M80count = "";
+                            MyMitCom.GetParaValue(30, 8002, 1, 1, out M80count);
+                            try { if (M80count != "") { WkcntrNum = Convert.ToInt32(M80count); } }
+                            catch { }
+
 
                             //-----三色灯--------------------------------------
                             int Y40 = -1;
@@ -121,19 +134,19 @@ namespace M80Scada
                             if (Y40 == 0 && Y41 == 1 && Y42 == 0) { LedStatus = 1; }//绿灯 0 1 0
                             if (Y40 == 1 && Y41 == 1 && Y42 == 0) { LedStatus = 2; }//黄灯 1 1 0
                             if (Y40 == 0 && Y41 == 0 && Y42 == 1) { LedStatus = 2; }//黄灯 0 0 1
-                            if (Y40 == 1 && Y41 == 0 && Y42 == 0) { LedStatus = 3; }//红灯 1 0 0                            
+                            if (Y40 == 1 && Y41 == 0 && Y42 == 0) { LedStatus = 3; }//红灯 1 0 0
+
+                            //待解决；红拓 盈拓 C95 C114 C115 C116 C117 C1188三个都是0 ？绿灯
+                            if (Y40 == 0 && Y41 == 0 && Y42 == 0 && M80count != "") { LedStatus = 1; }//  待解决 绿灯 0 0 0
+
+
 
                             if (LedStatus>0) 
                             {
                                 string str = "断点专用";
                             }
 
-
-                            //-----工件计数--------------------------------------
-                            string M80count = "";
-                            MyMitCom.GetParaValue(30, 8002, 1, 1, out M80count);
-                            try { if (M80count != "") { WkcntrNum = Convert.ToInt32(M80count); } }
-                            catch { }
+                                  
 
                             //-----产量小计--------------------------------------
                             WkcntrCount = GetWkcntrCount(WkcntrNum, MachineID, MyMachine.ScadaNO);
